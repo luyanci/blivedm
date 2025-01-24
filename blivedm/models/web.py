@@ -116,6 +116,9 @@ class DanmakuMessage:
 
     reply_uname: str = ''
     """回复弹幕"""
+    
+    wealth_level: int = 0
+    """荣耀等级"""
 
     @classmethod
     def from_command(cls, info: list, dm_v2=''):
@@ -195,6 +198,8 @@ class DanmakuMessage:
             privilege_type=info[7],
 
             reply_uname=json.loads(info[0][15]["extra"])["reply_uname"],
+            
+            wealth_level=info[16][0],
         )
 
     @property
